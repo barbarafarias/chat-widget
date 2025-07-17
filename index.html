@@ -1,26 +1,40 @@
-<html>
-  <head>
-    <title>Chat widget</title>
-  </head>
-  <body>
-    <script type='text/javascript'>
-    	function initEmbeddedMessaging() {
-    		try {
-    			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-    
-    			embeddedservice_bootstrap.init(
-    				'00DWz000006peRO',
-    				'AI_Agents_Widget',
-    				'https://data-dream-57222.my.site.com/ESWAIAgentsWidget1752656994187',
-    				{
-    					scrt2URL: 'https://data-dream-57222.my.salesforce-scrt.com'
-    				}
-    			);
-    		} catch (err) {
-    			console.error('Error loading Embedded Messaging: ', err);
-    		}
-    	};
-    </script>
-    <script type='text/javascript' src='https://data-dream-57222.my.site.com/ESWAIAgentsWidget1752656994187/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Salesforce Chat Widget</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 50px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Our Support Page</h1>
+  <p>Click the chat icon below to get help.</p>
+
+  <!-- Insert your Salesforce Embedded Service code snippet here -->
+  <script type='text/javascript'>
+    (function(d, s, id){
+      var js, e = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://data-dream-57222.lightning.force.com/embeddedservice/asyncclient/bootstrap.min.js';
+      e.parentNode.insertBefore(js, e);
+    }(document, 'script', 'embeddedservice-widget-bootstrap'));
+
+    window.embeddedservice_bootstrap.settings = {
+      embeddedServiceConfig: {
+        orgId: '00DWz000006peRO',
+        deploymentId: 'AI_Custom_Deployment',
+        serviceEndpoint: 'https://data-dream-57222.my.salesforce-scrt.com',
+        targetElement: 'body',
+        ...
+      },
+      ...
+    };
+  </script>
+</body>
 </html>
